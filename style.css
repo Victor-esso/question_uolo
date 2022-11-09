@@ -181,3 +181,17 @@ body{
     }
 
   }
+
+  .go-btn{
+    outline: none;
+    border: none;
+    display: grid;
+    place-items: center;
+    padding: 10px;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 5px;
+  }
+  .go-btn>iconify-icon{
+    color: white;
+  }
