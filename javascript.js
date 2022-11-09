@@ -4,7 +4,10 @@ $(document).ready(function(){
         $('#question-container').children().children('.question').each(function(){
             $(this).css('display','block');
         })
-        $('#question-container').unmark();
+        $('#question-container').children().children('.question').each(function(){
+            $(this).children('p').unmark();
+        })
+        //$('#question-container').unmark();
     }
 
 $('#search-key').keyup(function(){
@@ -12,11 +15,13 @@ $('#search-key').keyup(function(){
     let searchValue = $(this).val().trim();
     if(searchValue.length){
         markArray = searchValue.split(' ');
-        $('#question-container').mark(markArray);
+        //$('#question-container').mark(markArray);
         $('#question-container').children().children('.question').each(function(){
             searchHaystack = '';
             searchHaystack += $(this).children('p').text().trim()+' ';
-            
+
+            $(this).children('p').mark(markArray);
+
             if(!searchDeep(searchValue,searchHaystack)){
                 $(this).css('display','none');
             }else{
